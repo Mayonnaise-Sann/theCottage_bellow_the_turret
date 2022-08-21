@@ -4,42 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>three360-demo</title>
+    <title>theCottage_bellow_the_turret</title>
     <link rel="stylesheet" href="./css/index.css">
     
 </head>
 <body>
+    <select name="mode" id="toggle">
+        <option value="day">🌞</option>
+        <option value="night">🌛</option>
+        <option value="dinner">🍜</option>
+    </select>
     <div id="container"></div>
     <script src="./js/three.min.js"></script>
     <script src="./js/pabolens.min.js"></script>
-    <script>
-      let viewer = new PANOLENS.Viewer({
-          container: document.querySelector('#container'),
-          controlButtons: ['fullscreen', 'setting', 'video'],
-          autoRotate: true, //自动播放
-          autoRotateActivationDuration: 2000, //时长
-          autoRotateSpeed: 0.2, //速度
-          output:'console',
-      });
-        
-      const panorama_hall = new PANOLENS.ImagePanorama('./images/hall.jpg');
-      const panorama_courtyard = new PANOLENS.ImagePanorama('./images/courtyard.jpg');
-      const panorama_roomB = new PANOLENS.ImagePanorama('./images/roomB.jpg');
-      const panorama_roomA = new PANOLENS.ImagePanorama('./images/roomA.jpg');
-
-
-      panorama_courtyard.link(panorama_hall, new THREE.Vector3(-89.52, -1580.08, 5000.00));
-      panorama_courtyard.link(panorama_roomA, new THREE.Vector3(5000.00, -2268.38, 30.47));
-      panorama_courtyard.link(panorama_roomB, new THREE.Vector3(1054.29, -43.45, 5000.00));
-
-      panorama_hall.link(panorama_courtyard, new THREE.Vector3(-5000.00, -2227.51, -906.21));
-      panorama_hall.link(panorama_roomB, new THREE.Vector3(-5000.00, -1253.48, -4271.43));
-      panorama_roomA.link(panorama_courtyard, new THREE.Vector3(346.63, -512.45, -5000.00));
-      panorama_roomB.link(panorama_hall, new THREE.Vector3(5000.00, -2396.31, -328.22));
-
-
-      viewer.add(panorama_courtyard,panorama_hall,panorama_roomA,panorama_roomB);
-  
-     </script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
