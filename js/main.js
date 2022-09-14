@@ -13,7 +13,7 @@ var panorama_roomA = null;
 var panorama_foreyard = null;
 var panorama_leftAlley = null;
 var panorama_rightAlley = null;
-var imgSource = './images/imgSource_Opt';
+var imgSource = './images/imgSource_Ori';
 
 function loadCommon() {
     panorama_foreyard = new PANOLENS.ImagePanorama(`${imgSource}/foreyard.jpg`);
@@ -86,18 +86,33 @@ function loadNight() {
 // --------------------------------------------
 
 const toggle = document.querySelector('#toggle');
+const sourceToggle = document.querySelector('#source_toggle');
 
-toggle.addEventListener('change', () => {
-    if (toggle.value == 'day') {
+
+// 重新加载
+function reLoad(mode) {
+    if (mode == 'day') {
         viewer.dispose();
         loadDay();
         viewer.add(panorama_foreyard, panorama_leftAlley, panorama_rightAlley,panorama_courtyard, panorama_hall, panorama_roomB, panorama_roomA);
-    } else if (toggle.value == 'night') {
+    } else if (mode == 'night') {
         viewer.dispose();
         loadNight();
         viewer.add(panorama_courtyard, panorama_hall, panorama_roomB, panorama_roomA);
     } else {}
+}
+
+// 更改图片质量
+sourceToggle.addEventListener('change', () => {
+    if(sourceToggle.value == 'origin')
+        imgSource = `./images/imgSource_Opt`
+    else
+        imgSource = `./images/imgSource_Ori`
+    reLoad(toggle.value);
 });
+
+// 更改模式
+toggle.addEventListener('change', reLoad(toggle.value));
 
 
 (function init() {
