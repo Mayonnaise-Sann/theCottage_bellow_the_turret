@@ -105,9 +105,9 @@ function reLoad(mode) {
 // 更改图片质量
 sourceToggle.addEventListener('change', () => {
     if(sourceToggle.value == 'origin')
-        imgSource = `./images/imgSource_Opt`
-    else
         imgSource = `./images/imgSource_Ori`
+    else
+        imgSource = `./images/imgSource_Opt`
     reLoad(toggle.value);
 });
 
