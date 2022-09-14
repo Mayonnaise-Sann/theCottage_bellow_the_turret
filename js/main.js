@@ -13,11 +13,12 @@ var panorama_roomA = null;
 var panorama_foreyard = null;
 var panorama_leftAlley = null;
 var panorama_rightAlley = null;
+var imgSource = './images/imgSource_Opt';
 
 function loadCommon() {
-    panorama_foreyard = new PANOLENS.ImagePanorama('./images/foreyard.jpg');
-    panorama_leftAlley  = new PANOLENS.ImagePanorama('./images/leftAlley.jpg');    
-    panorama_rightAlley = new PANOLENS.ImagePanorama('./images/rightAlley.jpg');
+    panorama_foreyard = new PANOLENS.ImagePanorama(`${imgSource}/foreyard.jpg`);
+    panorama_leftAlley  = new PANOLENS.ImagePanorama(`${imgSource}/leftAlley.jpg`);    
+    panorama_rightAlley = new PANOLENS.ImagePanorama(`${imgSource}/rightAlley.jpg`);
     
     panorama_foreyard.link(panorama_leftAlley, new THREE.Vector3(-5000.00, -802.45, -21.61));
     panorama_foreyard.link(panorama_rightAlley, new THREE.Vector3(5000.00, -846.77, -20.53));
@@ -31,10 +32,10 @@ function loadCommon() {
 
 function loadDay() {
     loadCommon();
-    panorama_hall = new PANOLENS.ImagePanorama('./images/day/hall.jpg');
-    panorama_courtyard = new PANOLENS.ImagePanorama('./images/day/courtyard.jpg');
-    panorama_roomB = new PANOLENS.ImagePanorama('./images/day/roomB.jpg');
-    panorama_roomA = new PANOLENS.ImagePanorama('./images/day/roomA.jpg');
+    panorama_hall = new PANOLENS.ImagePanorama(`${imgSource}/day/hall.jpg`);
+    panorama_courtyard = new PANOLENS.ImagePanorama(`${imgSource}/day/courtyard.jpg`);
+    panorama_roomB = new PANOLENS.ImagePanorama(`${imgSource}/day/roomB.jpg`);
+    panorama_roomA = new PANOLENS.ImagePanorama(`${imgSource}/day/roomA.jpg`);
     
 
     panorama_courtyard.link(panorama_hall, new THREE.Vector3(5000.00, -1594.97, 47.48));
@@ -55,16 +56,19 @@ function loadDay() {
     
 }
 
-
+// function add(imgSource,schema,jpg) {
+//     let panorama = new PANOLENS.ImagePanorama(imgSource + schema + jpg + '.jpg`);
+//     return panorama;
+// }
 
 
 function loadNight() {
     // loadCommon();
         
-    panorama_hall = new PANOLENS.ImagePanorama('./images/night/hall.jpg');
-    panorama_courtyard = new PANOLENS.ImagePanorama('./images/night/courtyard.jpg');
-    panorama_roomB = new PANOLENS.ImagePanorama('./images/night/roomB.jpg');
-    panorama_roomA = new PANOLENS.ImagePanorama('./images/night/roomA.jpg');
+    panorama_hall = new PANOLENS.ImagePanorama(`${imgSource}/night/hall.jpg`);
+    panorama_courtyard = new PANOLENS.ImagePanorama(`${imgSource}/night/courtyard.jpg`);
+    panorama_roomB = new PANOLENS.ImagePanorama(`${imgSource}/night/roomB.jpg`);
+    panorama_roomA = new PANOLENS.ImagePanorama(`${imgSource}/night/roomA.jpg`);
     
     panorama_courtyard.link(panorama_hall, new THREE.Vector3(-89.52, -1580.08, 5000.00));
     panorama_courtyard.link(panorama_roomA, new THREE.Vector3(5000.00, -2268.38, 30.47));
@@ -76,8 +80,7 @@ function loadNight() {
     panorama_roomA.link(panorama_courtyard, new THREE.Vector3(346.63, -512.45, -5000.00));
     panorama_roomB.link(panorama_hall, new THREE.Vector3(5000.00, -2396.31, -328.22));
 
-    // panorama_courtyard.link(panorama_foreyard, new THREE.Vector3(-792.87, -1297.96, -5000.00));
-    // panorama_foreyard.link(panorama_courtyard, new THREE.Vector3(393.70, -2186.97, -5000.00));
+  
     
 }
 // --------------------------------------------
