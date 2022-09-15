@@ -13,7 +13,7 @@ var panorama_roomA = null;
 var panorama_foreyard = null;
 var panorama_leftAlley = null;
 var panorama_rightAlley = null;
-var imgSource = './images/imgSource_Ori';
+var imgSource = './images/imgSource_Opt';
 
 function loadCommon() {
     panorama_foreyard = new PANOLENS.ImagePanorama(`${imgSource}/foreyard.jpg`);
@@ -112,7 +112,9 @@ sourceToggle.addEventListener('change', () => {
 });
 
 // 更改模式
-toggle.addEventListener('change', reLoad(toggle.value));
+toggle.addEventListener('change', () => {
+    reLoad(toggle.value)
+});
 
 
 (function init() {
