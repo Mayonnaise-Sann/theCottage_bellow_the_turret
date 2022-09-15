@@ -112,7 +112,9 @@ sourceToggle.addEventListener('change', () => {
 });
 
 // 更改模式
-toggle.addEventListener('change', reLoad(toggle.value));
+toggle.addEventListener('change', ()=>{
+    reLoad(toggle.value);
+});
 
 
 (function init() {
